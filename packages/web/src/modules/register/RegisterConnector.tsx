@@ -3,11 +3,15 @@ import { RegisterController } from '@abb/controller'
 
 import { RegisterView } from './ui/RegisterView'
 
-export default class RegisterConnector extends React.PureComponent {
+// container -> view
+// container -> connector -> view
+// controller -> connector -> view
+
+export class RegisterConnector extends React.PureComponent {
   render() {
     return (
       <RegisterController>
-        {({ submit }: { submit: any }) => <RegisterView submit={submit} />}
+        {({ submit }) => <RegisterView submit={submit} />}
       </RegisterController>
     )
   }

@@ -1,6 +1,8 @@
-import { FieldProps } from 'formik'
-import * as React from 'react'
-import { Form, Input } from 'antd'
+import * as React from "react";
+import { FieldProps } from "formik";
+import { Form, Input } from "antd";
+
+const FormItem = Form.Item;
 
 export const InputField: React.SFC<
   FieldProps<any> & { prefix: React.ReactNode }
@@ -9,11 +11,11 @@ export const InputField: React.SFC<
   form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
   ...props
 }) => {
-  const errorMsg = touched[field.name] && errors[field.name]
+  const errorMsg = touched[field.name] && errors[field.name];
+
   return (
-    <Form.Item help={errorMsg} validateStatus={errorMsg ? 'error' : undefined}>
-      {console.log(errorMsg)}
+    <FormItem help={errorMsg} validateStatus={errorMsg ? "error" : undefined}>
       <Input {...field} {...props} />
-    </Form.Item>
-  )
-}
+    </FormItem>
+  );
+};
